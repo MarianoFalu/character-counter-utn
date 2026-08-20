@@ -1,8 +1,10 @@
+import logo from "../assets/logo.png"
+
 const Header = () => {
     return (
         <header>
             <div className="logo">
-                <img src="/assets/img/logo.png" alt="logo" />
+                <img src={logo} alt="logo" />
                 <h1>Character Counter</h1>
             </div>
 

@@ -1,6 +1,7 @@
 import { Header } from "./components/Header.jsx"
 import { WriteArea } from "./components/WriteArea.jsx"
 import { Controlls } from "./components/Controlls.jsx"
+import { Stats } from "./components/Stats.jsx"
 
 function App() {
     return (
@@ -15,6 +16,8 @@ function App() {
             <WriteArea />
 
             <Controlls />
+
+            <Stats />
         </main>
     )
 }

@@ -15,6 +15,8 @@ function App() {
         setText(value)
     }
 
+    const characters = text.length
+
     const sortLetters = [
         {
             letterName: "e",
@@ -60,7 +62,7 @@ function App() {
 
             <Controlls />
 
-            <Stats />
+            <Stats characters={characters} />
 
             <LetterDensity sortLetters={sortLetters} />
 

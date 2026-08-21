@@ -21,6 +21,8 @@ function App() {
 
     const sentences = text.trim() === "" ? 0 : text.split(/[.!?]/).filter(sentence => sentence.trim() !== "").length
 
+    const readingTime = Math.ceil(words / 180)
+
     const sortLetters = [
         {
             letterName: "e",
@@ -64,7 +66,7 @@ function App() {
                 text={text}
             />
 
-            <Controlls />
+            <Controlls readingTime={readingTime} />
 
             <Stats
                 characters={characters}

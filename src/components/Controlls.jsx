@@ -1,4 +1,4 @@
-const Controlls = () => {
+const Controlls = ({ readingTime }) => {
     return (
         <section className="controls">
             <div className="left-controls">
@@ -13,7 +13,7 @@ const Controlls = () => {
                 </label>
             </div>
 
-            <p>Approx. reading time: &lt;1 minute</p>
+            <p>Approx. reading time: ~{readingTime} minute{readingTime !== 1 && "s"}</p>
         </section>
     )
 }

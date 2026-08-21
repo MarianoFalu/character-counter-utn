@@ -36,3 +36,196 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+/* MAIN */
+main {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    padding: 20px;
+    padding-top: 5px;
+    width: 100%;
+    max-width: 750px;
+    min-height: 100vh;
+}
+
+/* HEADER */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    color: var(--text-secondary);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+}
+
+.logo img {
+    width: 70px;
+    height: auto;
+}
+
+header button {
+    background-color: var(--bg-card);
+    border: none;
+    cursor: pointer;
+    font-size: 30px;
+}
+
+/* HERO */
+main > h2 {
+    text-align: center;
+    font-size: 55px;
+    line-height: 1.1;
+    margin-bottom: 15px;
+}
+
+.text-area {
+    width: 100%;
+    height: 120px;
+    padding: 15px;
+
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    color: var(--text-secondary);
+    font-family: inherit;
+
+    resize: none;
+    outline: none;
+
+    box-shadow: 0 0 2px var(--border);
+}
+
+/* CONTROLS */
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.left-controls {
+    display: flex;
+    gap: 5px;
+    font-size: 16px;
+    color: var(--text-secondary);
+}
+
+.controls p {
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.controls input {
+    margin-right: 5px;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    background-color: var(--bg-main);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.controls input:checked::after {
+    content: "✔";
+    color: white;
+    font-size: 12px;
+    display: block;
+    text-align: center;
+}
+
+/* CARDS */
+.cards {
+    display: flex;
+    margin-top: 25px;
+    gap: 15px;
+}
+
+.characters {
+    background-color: var(--purple);
+    flex: 1;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.word {
+    background-color: var(--orange);
+    flex: 1;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.sentence {
+    background-color: var(--coral);
+    flex: 1;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.number {
+    font-size: 40px;
+    font-weight: bold;
+    color: black;
+}
+
+.label {
+    font-size: 15px;
+    color: black;
+}
+
+/* LETTER DENSITY */
+.letter-density {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.letter-density h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.letter-density ul {
+    list-style: none;
+    padding: 0;
+}
+
+.letter-density li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.letter-density li span:first-child {
+    font-size: 16px;
+    color: var(--text-secondary);
+    width: 15px;
+}
+
+.letter-density meter {
+    flex: 1;
+    height: 10px;
+    margin: 0 15px;
+}
+
+.letter-density li span:last-child {
+    font-size: 16px;
+    color: var(--text-secondary);
+    text-align: right;
+    width: 90px;
+}
+
+.letter-density details {
+    margin-top: 10px;
+}
+
+.letter-density summary {
+    color: var(--text-secondary);
+    font-size: 14px;
+    cursor: pointer;
+}

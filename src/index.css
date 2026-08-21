@@ -43,8 +43,7 @@ main {
     color: var(--text-main);
     padding: 20px;
     padding-top: 5px;
-    width: 100%;
-    max-width: 750px;
+    width: 650px;
     min-height: 100vh;
 }
 
@@ -109,11 +108,13 @@ main > h2 {
     margin-top: 10px;
 }
 
-.left-controls {
-    display: flex;
-    gap: 5px;
-    font-size: 16px;
-    color: var(--text-secondary);
+.left-controls input[type="number"] {
+    width: 60px;
+    height: 24px;
+    margin-left: 5px;
+    padding: 3px 6px;
+    color: var(--text-main);
+    background-color: var(--bg-card);
 }
 
 .controls p {

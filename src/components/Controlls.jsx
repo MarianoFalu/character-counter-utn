@@ -1,7 +1,11 @@
 const Controlls = ({
     readingTime,
     excludeSpaces,
-    handleExcludeSpaces
+    handleExcludeSpaces,
+    limitCharacter,
+    handleChangeInputLimit,
+    limitValue,
+    handleLimitValue
 }) => {
     return (
         <section className="controls">
@@ -16,8 +20,21 @@ const Controlls = ({
                 </label>
 
                 <label>
-                    <input type="checkbox" />
+                    <input
+                        type="checkbox"
+                        checked={limitCharacter}
+                        onChange={handleChangeInputLimit}
+                    />
                     Set Character Limit
+
+                    {
+                        limitCharacter &&
+                        <input
+                            type="number"
+                            value={limitValue}
+                            onChange={(e) => handleLimitValue(e.target.value)}
+                        />
+                    }
                 </label>
             </div>
 

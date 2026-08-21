@@ -1,5 +1,4 @@
 import { useState } from "react"
-
 import { Header } from "./components/Header.jsx"
 import { WriteArea } from "./components/WriteArea.jsx"
 import { Controlls } from "./components/Controlls.jsx"
@@ -10,14 +9,35 @@ function App() {
 
     const [text, setText] = useState("")
     const [excludeSpaces, setExcludeSpaces] = useState(false)
+    const [limitCharacter, setLimitCharacter] = useState(false)
+    const [limitValue, setLimitValue] = useState(10)
 
     const handleChangeTextarea = (e) => {
         const value = e.target.value
-        setText(value)
+
+        if (limitCharacter) {
+            if (value.length <= limitValue) {
+                setText(value)
+            }
+        } else {
+            setText(value)
+        }
     }
 
     const handleExcludeSpaces = () => {
     setExcludeSpaces(!excludeSpaces)
+    }
+
+    const handleChangeInputLimit = () => {
+    setLimitCharacter(!limitCharacter)
+    }
+
+    const handleLimitValue = (value) => {
+        if (text !== "") {
+            return
+        }
+
+        setLimitValue(value)
     }
 
     const characters = excludeSpaces ? text.replace(/\s/g, "").length : text.length
@@ -75,6 +95,10 @@ function App() {
                 readingTime={readingTime}
                 excludeSpaces={excludeSpaces}
                 handleExcludeSpaces={handleExcludeSpaces}
+                limitCharacter={limitCharacter}
+                handleChangeInputLimit={handleChangeInputLimit}
+                limitValue={limitValue}
+                handleLimitValue={handleLimitValue}
             />
 
             <Stats

@@ -1,3 +1,5 @@
+import { useState } from "react"
+
 import { Header } from "./components/Header.jsx"
 import { WriteArea } from "./components/WriteArea.jsx"
 import { Controlls } from "./components/Controlls.jsx"
@@ -5,6 +7,13 @@ import { Stats } from "./components/Stats.jsx"
 import { LetterDensity } from "./components/LetterDensity.jsx"
 
 function App() {
+
+    const [text, setText] = useState("")
+
+    const handleChangeTextarea = (e) => {
+        const value = e.target.value
+        setText(value)
+    }
 
     const sortLetters = [
         {
@@ -36,6 +45,7 @@ function App() {
 
     return (
         <main>
+
             <Header />
 
             <h2>
@@ -43,13 +53,17 @@ function App() {
                 in real-time.
             </h2>
 
-            <WriteArea />
+            <WriteArea
+                handleChangeTextarea={handleChangeTextarea}
+                text={text}
+            />
 
             <Controlls />
 
             <Stats />
 
             <LetterDensity sortLetters={sortLetters} />
+
         </main>
     )
 }

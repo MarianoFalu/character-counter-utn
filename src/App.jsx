@@ -48,33 +48,30 @@ function App() {
 
     const readingTime = Math.ceil(words / 180)
 
-    const sortLetters = [
-        {
-            letterName: "e",
-            amount: 40,
-            percentage: 16.06
-        },
-        {
-            letterName: "i",
-            amount: 29,
-            percentage: 11.65
-        },
-        {
-            letterName: "t",
-            amount: 28,
-            percentage: 11.24
-        },
-        {
-            letterName: "o",
-            amount: 22,
-            percentage: 8.84
-        },
-        {
-            letterName: "n",
-            amount: 21,
-            percentage: 8.43
+    const cleanText = text.toLowerCase().replace(/[^a-záéíóúü]/g, "")
+
+    const total = cleanText.length
+
+    const dictionaryLetters = {}
+
+    cleanText.split("").forEach(letter => {
+        dictionaryLetters[letter] = (dictionaryLetters[letter] || 0) + 1
+    })
+
+    const letters = Object.entries(dictionaryLetters).map(dataLetter => {
+        const letter = dataLetter[0]
+        const amountLetter = dataLetter[1]
+
+        const infoToRenderLetter = {
+            letterName: letter,
+            amount: amountLetter,
+            percentage: (amountLetter / total) * 100
         }
-    ]
+
+        return infoToRenderLetter
+    })
+
+    const sortLetters = letters.sort((a, b) => b.amount - a.amount)
 
     return (
         <main>
@@ -107,7 +104,9 @@ function App() {
                 sentences={sentences}
             />
 
-            <LetterDensity sortLetters={sortLetters} />
+            {
+                text && <LetterDensity sortLetters={sortLetters} />
+            }
 
         </main>
     )

@@ -1,11 +1,14 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { Header } from "./components/Header.jsx"
 import { WriteArea } from "./components/WriteArea.jsx"
 import { Controlls } from "./components/Controlls.jsx"
 import { Stats } from "./components/Stats.jsx"
 import { LetterDensity } from "./components/LetterDensity.jsx"
+import { ThemeContext } from "./context/ThemeContext.jsx"
 
 function App() {
+
+    const { dark, handleDarkTheme } = useContext(ThemeContext)
 
     const [text, setText] = useState("")
     const [excludeSpaces, setExcludeSpaces] = useState(false)
@@ -74,9 +77,12 @@ function App() {
     const sortLetters = letters.sort((a, b) => b.amount - a.amount)
 
     return (
-        <main>
+        <main className={dark ? "dark-theme" : ""}>
 
-            <Header />
+            <Header
+                dark={dark}
+                handleDarkTheme={handleDarkTheme}
+            />
 
             <h2>
                 Analyze your text <br />

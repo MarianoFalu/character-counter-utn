@@ -20,6 +20,16 @@
     --border: #2A2D3A;
 }
 
+main:not(.dark-theme) {
+    --bg-main: #F1E7D0;
+    --bg-card: #FFF8E8;
+
+    --text-main: #29251F;
+    --text-secondary: #706758;
+
+    --border: #D8C9A9;
+}
+
 /* FUENTE */
 @font-face {
     font-family: 'Space Grotesk';
@@ -29,7 +39,7 @@
 
 /* BODY */
 body {
-    background-color: white;
+    background-color: #F7F3E8;
     font-family: 'Space Grotesk', sans-serif;
     min-height: 100vh;
     display: flex;
@@ -63,7 +73,7 @@ header {
 }
 
 .logo img {
-    width: 70px;
+    width: 45px;
     height: auto;
 }
 
@@ -229,4 +239,14 @@ main > h2 {
     color: var(--text-secondary);
     font-size: 14px;
     cursor: pointer;
+}
+
+/* DARK MODE */
+main.dark-theme {
+    background-color: #252424;
+    color: white;
+}
+
+main.dark-theme h2 {
+    color: violet;
 }

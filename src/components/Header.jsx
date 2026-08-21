@@ -1,14 +1,16 @@
 import logo from "../assets/img/logo.png"
 
-const Header = () => {
+const Header = ({ dark, handleDarkTheme }) => {
     return (
         <header>
             <div className="logo">
-                <img src={logo} alt="logo" />
+                <img src={logo} alt="Character Counter logo" />
                 <h1>Character Counter</h1>
             </div>
 
-            <button>⚙️</button>
+            <button onClick={() => handleDarkTheme(!dark)}>
+                ☀
+            </button>
         </header>
     )
 }

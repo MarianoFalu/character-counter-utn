@@ -1,9 +1,17 @@
-const Controlls = ({ readingTime }) => {
+const Controlls = ({
+    readingTime,
+    excludeSpaces,
+    handleExcludeSpaces
+}) => {
     return (
         <section className="controls">
             <div className="left-controls">
                 <label>
-                    <input type="checkbox" />
+                    <input
+                        type="checkbox"
+                        checked={excludeSpaces}
+                        onChange={handleExcludeSpaces}
+                    />
                     Exclude Spaces
                 </label>
 

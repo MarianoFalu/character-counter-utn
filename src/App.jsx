@@ -9,13 +9,18 @@ import { LetterDensity } from "./components/LetterDensity.jsx"
 function App() {
 
     const [text, setText] = useState("")
+    const [excludeSpaces, setExcludeSpaces] = useState(false)
 
     const handleChangeTextarea = (e) => {
         const value = e.target.value
         setText(value)
     }
 
-    const characters = text.length
+    const handleExcludeSpaces = () => {
+    setExcludeSpaces(!excludeSpaces)
+    }
+
+    const characters = excludeSpaces ? text.replace(/\s/g, "").length : text.length
 
     const words = text.trim() === "" ? 0 : text.trim().split(/\s+/).length
 
@@ -66,7 +71,11 @@ function App() {
                 text={text}
             />
 
-            <Controlls readingTime={readingTime} />
+            <Controlls
+                readingTime={readingTime}
+                excludeSpaces={excludeSpaces}
+                handleExcludeSpaces={handleExcludeSpaces}
+            />
 
             <Stats
                 characters={characters}

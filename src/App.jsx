@@ -19,6 +19,8 @@ function App() {
 
     const words = text.trim() === "" ? 0 : text.trim().split(/\s+/).length
 
+    const sentences = text.trim() === "" ? 0 : text.split(/[.!?]/).filter(sentence => sentence.trim() !== "").length
+
     const sortLetters = [
         {
             letterName: "e",
@@ -67,6 +69,7 @@ function App() {
             <Stats
                 characters={characters}
                 words={words}
+                sentences={sentences}
             />
 
             <LetterDensity sortLetters={sortLetters} />
